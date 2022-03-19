@@ -8,8 +8,8 @@ from operation import selectCL,selectC
 from queue import get_userid
 import json
 cgitb.enable()
-#try:
-if(True):
+try:
+#if(True):
     userid=get_userid()
     #print('Content-Type: application/json')
     print('Content-Type: text/html')
@@ -29,5 +29,5 @@ if(True):
             ['borrower_lastname',lastname[b['borrower']]]
             ])
     print('{"status":"OK"'+',"data":'+json.dumps(a)+'}')
-#except:
-#    print('{"status":"ERROR"}')
+except:
+    print('{"status":"ERROR"}')
