@@ -1,0 +1,15 @@
+http://localhost/api/user/create.py?name=asd&phone=12389123&email=plk&password=qwezxc
+http://localhost/api/user/login.py?email=plk&password=qwezxc
+http://localhost/api/user/allToken.py
+http://localhost/api/user/all.py
+http://localhost/api/user/get.py
+
+http://localhost/api/lend/create.py?borrower=yomero&sdate=1647679637&edate=1657779637&amount=100&freq=10&tip=5
+http://localhost/api/lend/all.py
+http://localhost/api/lend/get.py
+http://localhost/api/lend/auto.py?agrid=1
+http://localhost/api/lend/current.py
+http://localhost/api/lend/pending.py
+http://localhost/api/lend/completed.py
+
+http://localhost/api/trans/all.py
