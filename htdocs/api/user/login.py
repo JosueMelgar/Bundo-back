@@ -9,7 +9,8 @@ from misc import gen_token
 cgitb.enable()
 #print('Content-Type: text/html')
 #print('')
-try:
+#try:
+if(True):
     values=[value('email','str'),
             value('password','str')]
     r=equalSelect(values,'users')
@@ -26,8 +27,10 @@ try:
     else:
         print('Content-Type: text/json')
         print()
-        print('{"status":"OK"}')
+        print('{"status":"ERROR"}')
+'''        
 except:
     print('Content-Type: text/json')
     print()
     print('{"status":"ERROR"}')
+'''

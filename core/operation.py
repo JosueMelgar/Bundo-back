@@ -53,16 +53,15 @@ def selectC(conditions,table,columns):
     return a
 def selectCL(conditions,table,columns):
     db = sqlite3.connect("C:/Apache24/core/db")
-    q=f"SELECT {str(columns)[1:-1]} FROM {table} WHERE {conditions}"
-    print(q)
+    q=f"SELECT {','.join(columns)} FROM {table} WHERE {conditions}"
     a=db.execute(q).fetchall()
     r=[]
     for b in a:
         d={}
-        d.update(zip(columns,b))
+        d.update(list(zip(columns,b)))
         r.append(d)
     db.close()
-    return a
+    return r
 def selectOLW(order,limit,conditions,table):
     db = sqlite3.connect("C:/Apache24/core/db")
     q=f"SELECT * FROM {table} WHERE {conditions} ORDER BY {order} LIMIT {limit}"

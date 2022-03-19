@@ -11,6 +11,7 @@ cgitb.enable()
 print('Content-Type: text/html')
 print('')
 try:
+#if(True):
     userid=get_userid()
     #keys=['name','phone','email','password']
     form = cgi.FieldStorage()
@@ -27,7 +28,9 @@ try:
             value('freq','str'),
             ['npays',str(np)],
             ['t',"strftime('%s','now')"]]
-    a=insert(values,'arrangement')
+    a=insert(values,'agreements')
+    print('{"status":"OK"'+',"data":'+str(list([list(b) for b in a]))+'}')
+    '''
     if(a):
         v=[]
         id=get_lastid()[0]
@@ -36,5 +39,6 @@ try:
             v.append((str(id),str((it+c).timestamp()),str(i),str(int(form.getvalue('freq'))/np)))
         a=insertMany('arrid,pdate,n,amount','transactions',v)
         print('{"status":"OK"'+',"data":'+str(list([list(b) for b in a]))+'}')
+    '''
 except:
     print('{"status":"ERROR"}')

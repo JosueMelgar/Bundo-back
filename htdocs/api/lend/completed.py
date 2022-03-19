@@ -4,14 +4,15 @@ import sys
 import cgitb
 import os
 sys.path.insert(0, 'C:\Apache24\core')
-from operation import select
+from operation import selectCL
 from queue import get_userid
+import json
 cgitb.enable()
 try:
     userid=get_userid()
     print('Content-Type: text/html')
     print('')
-    a=select(f"lender={userid} AND status=2",'agreements')
-    print('{"status":"OK"'+',"data":'+str(list([list(b) for b in a]))+'}')
+    a=selectCL(f"lender={userid} AND status=2",'agreements',['agrid','lender','borrower','amount','tip','sdate','edate','freq','autopay','cash','npays','t','status'])
+    print('{"status":"OK"'+',"data":'+json.dumps(a)+'}')
 except:
     print('{"status":"ERROR"}')
